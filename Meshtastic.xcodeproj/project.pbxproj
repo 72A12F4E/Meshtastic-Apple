@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25183D462C0A6D97001E31D5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25183D452C0A6D97001E31D5 /* Logger.swift */; };
+		25988F3A2C0CE99B00EB2E93 /* MeshtasticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25988F392C0CE99B00EB2E93 /* MeshtasticTests.swift */; };
 		6DA39D8E2A92DC52007E311C /* MeshtasticAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA39D8D2A92DC52007E311C /* MeshtasticAppDelegate.swift */; };
 		6DEDA55A2A957B8E00321D2E /* DetectionSensorLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA5592A957B8E00321D2E /* DetectionSensorLog.swift */; };
 		6DEDA55C2A9592F900321D2E /* MessageEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA55B2A9592F900321D2E /* MessageEntityExtension.swift */; };
@@ -156,7 +157,6 @@
 		DDC2E15826CE248E0042C5E4 /* MeshtasticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2E15726CE248E0042C5E4 /* MeshtasticApp.swift */; };
 		DDC2E15C26CE248F0042C5E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC2E15B26CE248F0042C5E4 /* Assets.xcassets */; };
 		DDC2E15F26CE248F0042C5E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC2E15E26CE248F0042C5E4 /* Preview Assets.xcassets */; };
-		DDC2E17A26CE248F0042C5E4 /* MeshtasticUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2E17926CE248F0042C5E4 /* MeshtasticUITests.swift */; };
 		DDC2E18F26CE25FE0042C5E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2E18E26CE25FE0042C5E4 /* ContentView.swift */; };
 		DDC2E1A726CEB3400042C5E4 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2E1A626CEB3400042C5E4 /* LocationHelper.swift */; };
 		DDC3B274283F411B00AC321C /* LastHeardText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC3B273283F411B00AC321C /* LastHeardText.swift */; };
@@ -214,12 +214,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DDC2E17626CE248F0042C5E4 /* PBXContainerItemProxy */ = {
+		25988F3B2C0CE99B00EB2E93 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DDC2E14C26CE248E0042C5E4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DDC2E15326CE248E0042C5E4;
-			remoteInfo = MeshtasticClient;
+			remoteInfo = Meshtastic;
 		};
 		DDDE5A0129AF163E00490C6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -246,6 +246,8 @@
 
 /* Begin PBXFileReference section */
 		25183D452C0A6D97001E31D5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		25988F372C0CE99B00EB2E93 /* MeshtasticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeshtasticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		25988F392C0CE99B00EB2E93 /* MeshtasticTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshtasticTests.swift; sourceTree = "<group>"; };
 		6DA39D8D2A92DC52007E311C /* MeshtasticAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshtasticAppDelegate.swift; sourceTree = "<group>"; };
 		6DEDA5592A957B8E00321D2E /* DetectionSensorLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionSensorLog.swift; sourceTree = "<group>"; };
 		6DEDA55B2A9592F900321D2E /* MessageEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntityExtension.swift; sourceTree = "<group>"; };
@@ -422,10 +424,6 @@
 		DDC2E15B26CE248F0042C5E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		DDC2E15E26CE248F0042C5E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDC2E16526CE248F0042C5E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDC2E17026CE248F0042C5E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDC2E17526CE248F0042C5E4 /* MeshtasticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeshtasticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDC2E17926CE248F0042C5E4 /* MeshtasticUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshtasticUITests.swift; sourceTree = "<group>"; };
-		DDC2E17B26CE248F0042C5E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDC2E18E26CE25FE0042C5E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DDC2E1A626CEB3400042C5E4 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		DDC3B273283F411B00AC321C /* LastHeardText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastHeardText.swift; sourceTree = "<group>"; };
@@ -439,9 +437,6 @@
 		DDCDC6CC29481FCC004C1DDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DDCDC6CE294821AD004C1DDA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DDCE4E2B2869F92900BE9F8F /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
-		DDD28D362C0CCCD10063CFA3 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		DDD28D372C0CD2670063CFA3 /* MeshtasticDataModelV 37.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MeshtasticDataModelV 37.xcdatamodel"; sourceTree = "<group>"; };
-		DDD3BBD4292D763200D609B3 /* MeshtasticTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeshtasticTests.swift; sourceTree = "<group>"; };
 		DDD43FE22A78C8900083A3E9 /* MqttClientProxyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MqttClientProxyManager.swift; sourceTree = "<group>"; };
 		DDD6EEAE29BC024700383354 /* Firmware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firmware.swift; sourceTree = "<group>"; };
 		DDD94A4F2845C8F5004A87A0 /* DateTimeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeText.swift; sourceTree = "<group>"; };
@@ -499,6 +494,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		25988F342C0CE99B00EB2E93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDC2E15126CE248E0042C5E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,13 +508,6 @@
 				C9697FA527933B8C00250207 /* SQLite in Frameworks */,
 				DD0D3D222A55CEB10066DB71 /* CocoaMQTT in Frameworks */,
 				DD5394FC276993AD00AD86B1 /* SwiftProtobuf in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDC2E17226CE248F0042C5E4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +523,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25988F382C0CE99B00EB2E93 /* MeshtasticTests */ = {
+			isa = PBXGroup;
+			children = (
+				25988F392C0CE99B00EB2E93 /* MeshtasticTests.swift */,
+			);
+			path = MeshtasticTests;
+			sourceTree = "<group>";
+		};
 		C9483F6B2773016700998F6B /* MapKitMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,9 +801,8 @@
 				DDCDC6CD29481FCC004C1DDA /* Localizable.strings */,
 				DD3CC6BA28E366DF00FA9159 /* Meshtastic.xcdatamodeld */,
 				DDC2E15626CE248E0042C5E4 /* Meshtastic */,
-				DDC2E16D26CE248F0042C5E4 /* MeshtasticTests */,
-				DDC2E17826CE248F0042C5E4 /* MeshtasticUITests */,
 				DDDE59F729AF163D00490C6C /* Widgets */,
+				25988F382C0CE99B00EB2E93 /* MeshtasticTests */,
 				DDC2E15526CE248E0042C5E4 /* Products */,
 				DD8EDE9226F97A2B00A5A10B /* Frameworks */,
 			);
@@ -811,8 +813,8 @@
 			isa = PBXGroup;
 			children = (
 				DDC2E15426CE248E0042C5E4 /* Meshtastic.app */,
-				DDC2E17526CE248F0042C5E4 /* MeshtasticUITests.xctest */,
 				DDDE59F429AF163D00490C6C /* WidgetsExtension.appex */,
+				25988F372C0CE99B00EB2E93 /* MeshtasticTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -845,24 +847,6 @@
 				DDC2E15E26CE248F0042C5E4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		DDC2E16D26CE248F0042C5E4 /* MeshtasticTests */ = {
-			isa = PBXGroup;
-			children = (
-				DDD3BBD4292D763200D609B3 /* MeshtasticTests.swift */,
-				DDC2E17026CE248F0042C5E4 /* Info.plist */,
-			);
-			path = MeshtasticTests;
-			sourceTree = "<group>";
-		};
-		DDC2E17826CE248F0042C5E4 /* MeshtasticUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DDC2E17926CE248F0042C5E4 /* MeshtasticUITests.swift */,
-				DDC2E17B26CE248F0042C5E4 /* Info.plist */,
-			);
-			path = MeshtasticUITests;
 			sourceTree = "<group>";
 		};
 		DDC2E18726CE24E40042C5E4 /* Views */ = {
@@ -1033,6 +1017,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		25988F362C0CE99B00EB2E93 /* MeshtasticTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25988F3D2C0CE99B00EB2E93 /* Build configuration list for PBXNativeTarget "MeshtasticTests" */;
+			buildPhases = (
+				25988F332C0CE99B00EB2E93 /* Sources */,
+				25988F342C0CE99B00EB2E93 /* Frameworks */,
+				25988F352C0CE99B00EB2E93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				25988F3C2C0CE99B00EB2E93 /* PBXTargetDependency */,
+			);
+			name = MeshtasticTests;
+			productName = MeshtasticTests;
+			productReference = 25988F372C0CE99B00EB2E93 /* MeshtasticTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DDC2E15326CE248E0042C5E4 /* Meshtastic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDC2E17E26CE248F0042C5E4 /* Build configuration list for PBXNativeTarget "Meshtastic" */;
@@ -1058,24 +1060,6 @@
 			productReference = DDC2E15426CE248E0042C5E4 /* Meshtastic.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DDC2E17426CE248F0042C5E4 /* MeshtasticUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DDC2E18426CE248F0042C5E4 /* Build configuration list for PBXNativeTarget "MeshtasticUITests" */;
-			buildPhases = (
-				DDC2E17126CE248F0042C5E4 /* Sources */,
-				DDC2E17226CE248F0042C5E4 /* Frameworks */,
-				DDC2E17326CE248F0042C5E4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DDC2E17726CE248F0042C5E4 /* PBXTargetDependency */,
-			);
-			name = MeshtasticUITests;
-			productName = MeshtasticClientUITests;
-			productReference = DDC2E17526CE248F0042C5E4 /* MeshtasticUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		DDDE59F329AF163D00490C6C /* WidgetsExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDDE5A0529AF163F00490C6C /* Build configuration list for PBXNativeTarget "WidgetsExtension" */;
@@ -1099,17 +1083,16 @@
 		DDC2E14C26CE248E0042C5E4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1540;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					25988F362C0CE99B00EB2E93 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = DDC2E15326CE248E0042C5E4;
+					};
 					DDC2E15326CE248E0042C5E4 = {
 						CreatedOnToolsVersion = 12.5.1;
 						LastSwiftMigration = 1340;
-					};
-					DDC2E17426CE248F0042C5E4 = {
-						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = DDC2E15326CE248E0042C5E4;
 					};
 					DDDE59F329AF163D00490C6C = {
 						CreatedOnToolsVersion = 14.2;
@@ -1143,13 +1126,20 @@
 			projectRoot = "";
 			targets = (
 				DDC2E15326CE248E0042C5E4 /* Meshtastic */,
-				DDC2E17426CE248F0042C5E4 /* MeshtasticUITests */,
+				25988F362C0CE99B00EB2E93 /* MeshtasticTests */,
 				DDDE59F329AF163D00490C6C /* WidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		25988F352C0CE99B00EB2E93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDC2E15226CE248E0042C5E4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1161,13 +1151,6 @@
 				DDC2E15C26CE248F0042C5E4 /* Assets.xcassets in Resources */,
 				DD0E21012B8A6F1300F2D100 /* DeviceHardware.json in Resources */,
 				DDDBC87B2BC62E4E001E8DF7 /* Settings.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDC2E17326CE248F0042C5E4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1203,6 +1186,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		25988F332C0CE99B00EB2E93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25988F3A2C0CE99B00EB2E93 /* MeshtasticTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDC2E15026CE248E0042C5E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1395,14 +1386,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDC2E17126CE248F0042C5E4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DDC2E17A26CE248F0042C5E4 /* MeshtasticUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DDDE59F029AF163D00490C6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1417,10 +1400,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DDC2E17726CE248F0042C5E4 /* PBXTargetDependency */ = {
+		25988F3C2C0CE99B00EB2E93 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DDC2E15326CE248E0042C5E4 /* Meshtastic */;
-			targetProxy = DDC2E17626CE248F0042C5E4 /* PBXContainerItemProxy */;
+			targetProxy = 25988F3B2C0CE99B00EB2E93 /* PBXContainerItemProxy */;
 		};
 		DDDE5A0229AF163E00490C6C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1442,7 +1425,6 @@
 				DDDC22312BA76701002C44F1 /* fr */,
 				DDDC22322BA76961002C44F1 /* zh-Hant-TW */,
 				DDF45C352BC465B2005ED5F2 /* se */,
-				DDD28D362C0CCCD10063CFA3 /* pt-PT */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1450,6 +1432,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		25988F3E2C0CE99B00EB2E93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gvh.MeshtasticClient.MeshtasticTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meshtastic.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Meshtastic";
+			};
+			name = Debug;
+		};
+		25988F3F2C0CE99B00EB2E93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gvh.MeshtasticClient.MeshtasticTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meshtastic.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Meshtastic";
+			};
+			name = Release;
+		};
 		DDC2E17C26CE248F0042C5E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1639,48 +1668,6 @@
 			};
 			name = Release;
 		};
-		DDC2E18526CE248F0042C5E4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCH7VS5Y9R;
-				INFOPLIST_FILE = MeshtasticUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = gvh.MeshtasticUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Meshtastic;
-			};
-			name = Debug;
-		};
-		DDC2E18626CE248F0042C5E4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCH7VS5Y9R;
-				INFOPLIST_FILE = MeshtasticUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = gvh.MeshtasticUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Meshtastic;
-			};
-			name = Release;
-		};
 		DDDE5A0629AF163F00490C6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1750,6 +1737,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		25988F3D2C0CE99B00EB2E93 /* Build configuration list for PBXNativeTarget "MeshtasticTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25988F3E2C0CE99B00EB2E93 /* Debug */,
+				25988F3F2C0CE99B00EB2E93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DDC2E14F26CE248E0042C5E4 /* Build configuration list for PBXProject "Meshtastic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1764,15 +1760,6 @@
 			buildConfigurations = (
 				DDC2E17F26CE248F0042C5E4 /* Debug */,
 				DDC2E18026CE248F0042C5E4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DDC2E18426CE248F0042C5E4 /* Build configuration list for PBXNativeTarget "MeshtasticUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DDC2E18526CE248F0042C5E4 /* Debug */,
-				DDC2E18626CE248F0042C5E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1837,7 +1824,6 @@
 		DD3CC6BA28E366DF00FA9159 /* Meshtastic.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DDD28D372C0CD2670063CFA3 /* MeshtasticDataModelV 37.xcdatamodel */,
 				DD31B04D2BDC6FD30024FA63 /* MeshtasticDataModelV 36.xcdatamodel */,
 				DD268D8C2BCC7D11008073AE /* MeshtasticDataModelV 35.xcdatamodel */,
 				DDDBC87C2BC65682001E8DF7 /* MeshtasticDataModelV 34.xcdatamodel */,
@@ -1875,7 +1861,7 @@
 				DD5D0A9A2931AD6B00F7EA61 /* MeshtasticDataModelV2.xcdatamodel */,
 				DD3CC6BB28E366DF00FA9159 /* MeshtasticDataModel.xcdatamodel */,
 			);
-			currentVersion = DDD28D372C0CD2670063CFA3 /* MeshtasticDataModelV 37.xcdatamodel */;
+			currentVersion = DD3CC6BB28E366DF00FA9159 /* MeshtasticDataModel.xcdatamodel */;
 			name = Meshtastic.xcdatamodeld;
 			path = Meshtastic/Meshtastic.xcdatamodeld;
 			sourceTree = "<group>";
