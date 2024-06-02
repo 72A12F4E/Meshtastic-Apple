@@ -201,10 +201,8 @@ struct MapViewSwiftUI: UIViewRepresentable {
 			}
 		} else {
 			// Remove all existing PolyLine Overlays
-			for overlay in mapView.overlays {
-				if overlay is MKPolyline {
-					mapView.removeOverlay(overlay)
-				}
+			for overlay in mapView.overlays where overlay is MKPolyline {
+				mapView.removeOverlay(overlay)
 			}
 		}
 		let annotationCount = waypoints.count + (showNodeHistory ? positions.count : latest.count)

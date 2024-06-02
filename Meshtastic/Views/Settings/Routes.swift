@@ -57,7 +57,7 @@ struct Routes: View {
 						}
 
 						do {
-							guard let fileContent = String(data: try Data(contentsOf: selectedFile), encoding: .utf8) else { return }
+							guard let fileContent = String(decoding: try Data(contentsOf: selectedFile), as: UTF8.self) else { return }
 							let routeName = selectedFile.lastPathComponent.dropLast(4)
 							let lines = fileContent.components(separatedBy: "\n")
 							let headers = lines.first?.components(separatedBy: ",")

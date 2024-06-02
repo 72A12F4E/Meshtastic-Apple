@@ -196,10 +196,8 @@ struct Channels: View {
 							for object in objects {
 								context.delete(object)
 							}
-							for node in nodes {
-								if node.channel == channelEntity.index {
-									context.delete(node)
-								}
+							for node in nodes where node.channel == channelEntity.index{
+								context.delete(node)
 							}
 							context.delete(channelEntity)
 							do {

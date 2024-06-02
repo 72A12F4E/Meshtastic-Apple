@@ -12,7 +12,7 @@ struct LogDocument: FileDocument {
 
 	init(configuration: ReadConfiguration) throws {
 		guard let data = configuration.file.regularFileContents,
-			  let string = String(data: data, encoding: .utf8)
+			  let string = String(decoding: data, as: UTF8.self)
 		else {
 			throw CocoaError(.fileReadCorruptFile)
 		}
