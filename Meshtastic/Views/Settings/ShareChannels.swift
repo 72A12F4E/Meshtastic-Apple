@@ -32,27 +32,76 @@ struct QrCodeImage {
 	}
 }
 
+struct IncludedChannels: OptionSet, CaseIterable {
+	let rawValue: Int
+
+	static let channel0 = IncludedChannels(rawValue: 1 << 0)
+	static let channel1 = IncludedChannels(rawValue: 1 << 1)
+	static let channel2 = IncludedChannels(rawValue: 1 << 2)
+	static let channel3 = IncludedChannels(rawValue: 1 << 3)
+	static let channel4 = IncludedChannels(rawValue: 1 << 4)
+	static let channel5 = IncludedChannels(rawValue: 1 << 5)
+	static let channel6 = IncludedChannels(rawValue: 1 << 6)
+	static let channel7 = IncludedChannels(rawValue: 1 << 7)
+
+	static var allCases: [IncludedChannels] {
+		channel0 &
+		channel1 &
+		channel2 &
+		channel3 &
+		channel4 &
+		channel5 &
+		channel6 &
+		channel7
+	}
+}
+
 struct ShareChannels: View {
 
 	@Environment(\.managedObjectContext) var context
 	@EnvironmentObject var bleManager: BLEManager
 	@Environment(\.dismiss) private var dismiss
 	@State var channelSet: ChannelSet = ChannelSet()
-	@State var includeChannel0 = true
-	@State var includeChannel1 = true
-	@State var includeChannel2 = true
-	@State var includeChannel3 = true
-	@State var includeChannel4 = true
-	@State var includeChannel5 = true
-	@State var includeChannel6 = true
-	@State var includeChannel7 = true
-	@State var replaceChannels = true
+
+	@State var includedChannels = IncludedChannels.allCases
+
 	var node: NodeInfoEntity?
 	@State private var channelsUrl =  "https://www.meshtastic.org/e/#"
 	var qrCodeImage = QrCodeImage()
 
-	var body: some View {
+	@ViewBuilder
+	func makeChannelRow(
+		channel: ChannelEntity,
+		isOn: Binding<Bool>
+	) -> some View {
+		Toggle("Channel \(channel.index) Included", isOn: isOn)
+			.toggleStyle(.switch)
+			.labelsHidden()
+			.disabled(channel.index != 0 && channel.role == 1)
 
+		let displayName: String = {
+			if let name = channel.name, !name.isEmpty {
+				return name.camelCaseToWords()
+			} else if channel.index == 0 {
+				return "Primary"
+			} else {
+				return "Channel \(channel.index)"
+			}
+		}()
+		
+
+		Text(displayName).fixedSize()
+
+		if channel.psk?.hexDescription.count ?? 0 < 3 {
+			Image(systemName: "lock.slash")
+				.foregroundColor(.red)
+		} else {
+			Image(systemName: "lock.fill")
+				.foregroundColor(.green)
+		}
+	}
+
+	var body: some View {
 		if #available(iOS 17.0, macOS 14.0, *) {
 			VStack {
 				TipView(ShareChannelsTip(), arrowEdge: .bottom)
@@ -61,7 +110,7 @@ struct ShareChannels: View {
 		GeometryReader { bounds in
 			let smallest = min(bounds.size.width, bounds.size.height)
 			ScrollView {
-				if node != nil && node?.myInfo != nil {
+				if let myInfo = node?.myInfo {
 					Grid {
 						GridRow {
 							Spacer()
@@ -77,121 +126,36 @@ struct ShareChannels: View {
 								.font(.caption)
 								.fontWeight(.bold)
 						}
-						ForEach(node?.myInfo?.channels?.array as? [ChannelEntity] ?? [], id: \.self) { (channel: ChannelEntity) in
-							GridRow {
-								Spacer()
-								if channel.index == 0 {
-									Toggle("Channel 0 Included", isOn: $includeChannel0)
-										.toggleStyle(.switch)
-										.labelsHidden()
-									Text(((channel.name!.isEmpty ? "Primary" : channel.name) ?? "Primary").camelCaseToWords())
-									if channel.psk?.hexDescription.count ??  0 <  3 {
-										Image(systemName: "lock.slash")
-											.foregroundColor(.red)
-									} else {
-										Image(systemName: "lock.fill")
-											.foregroundColor(.green)
-									}
-								} else if channel.index == 1 && channel.role > 0 {
-									Toggle("Channel 1 Included", isOn: $includeChannel1)
-										.toggleStyle(.switch)
-										.labelsHidden()
-										.disabled(channel.role == 1)
-									Text(((channel.name!.isEmpty ? "Channel\(channel.index)" : channel.name) ?? "Channel\(channel.index)").camelCaseToWords()).fixedSize()
-									if channel.psk?.hexDescription.count ??  0 <  3 {
-										Image(systemName: "lock.slash")
-											.foregroundColor(.red)
-									} else {
-										Image(systemName: "lock.fill")
-											.foregroundColor(.green)
-									}
-								} else if channel.index == 2 && channel.role > 0 {
-									Toggle("Channel 2 Included", isOn: $includeChannel2)
-										.toggleStyle(.switch)
-										.labelsHidden()
-										.disabled(channel.role == 1)
-									Text(((channel.name!.isEmpty ? "Channel\(channel.index)" : channel.name) ?? "Channel\(channel.index)").camelCaseToWords()).fixedSize()
-									if channel.psk?.hexDescription.count ??  0 <  3 {
-										Image(systemName: "lock.slash")
-											.foregroundColor(.red)
-									} else {
-										Image(systemName: "lock.fill")
-											.foregroundColor(.green)
-									}
-								} else if channel.index == 3 && channel.role > 0 {
-									Toggle("Channel 3 Included", isOn: $includeChannel3)
-										.toggleStyle(.switch)
-										.labelsHidden()
-										.disabled(channel.role == 1)
-									Text(((channel.name!.isEmpty ? "Channel\(channel.index)" : channel.name) ?? "Channel\(channel.index)").camelCaseToWords()).fixedSize()
-									if channel.psk?.hexDescription.count ??  0 <  3 {
-										Image(systemName: "lock.slash")
-											.foregroundColor(.red)
-									} else {
-										Image(systemName: "lock.fill")
-											.foregroundColor(.green)
-									}
-								} else if channel.index == 4  && channel.role > 0 {
-									Toggle("Channel 4 Included", isOn: $includeChannel4)
-										.toggleStyle(.switch)
-										.labelsHidden()
-										.disabled(channel.role == 1)
-									Text(((channel.name!.isEmpty ? "Channel\(channel.index)" : channel.name) ?? "Channel\(channel.index)").camelCaseToWords()).fixedSize()
-									if channel.psk?.hexDescription.count ??  0 <  3 {
-										Image(systemName: "lock.slash")
-											.foregroundColor(.red)
-									} else {
-										Image(systemName: "lock.fill")
-											.foregroundColor(.green)
-									}
-								} else if channel.index == 5 && channel.role > 0 {
-									Toggle("Channel 5 Included", isOn: $includeChannel5)
-										.toggleStyle(.switch)
-										.labelsHidden()
-										.disabled(channel.role == 1)
-									Text(((channel.name!.isEmpty ? "Channel\(channel.index)" : channel.name) ?? "Channel\(channel.index)").camelCaseToWords()).fixedSize()
-									if channel.psk?.hexDescription.count ??  0 <  3 {
-										Image(systemName: "lock.slash")
-											.foregroundColor(.red)
-									} else {
-										Image(systemName: "lock.fill")
-											.foregroundColor(.green)
-									}
-								} else if channel.index == 6  && channel.role > 0 {
-									Toggle("Channel 6 Included", isOn: $includeChannel6)
-										.toggleStyle(.switch)
-										.labelsHidden()
-										.disabled(channel.role == 1)
-									Text(((channel.name!.isEmpty ? "Channel\(channel.index)" : channel.name) ?? "Channel\(channel.index)").camelCaseToWords()).fixedSize()
-									if channel.psk?.hexDescription.count ??  0 <  3 {
-										Image(systemName: "lock.slash")
-											.foregroundColor(.red)
-									} else {
-										Image(systemName: "lock.fill")
-											.foregroundColor(.green)
-									}
-								} else if channel.index == 7 && channel.role > 0 {
-									Toggle("Channel 7 Included", isOn: $includeChannel7)
-										.toggleStyle(.switch)
-										.labelsHidden()
-										.disabled(channel.role == 1)
-									Text(((channel.name!.isEmpty ? "Channel\(channel.index)" : channel.name) ?? "Channel\(channel.index)").camelCaseToWords()).fixedSize()
-									if channel.psk?.hexDescription.count ??  0 <  3 {
-										Image(systemName: "lock.slash")
-											.foregroundColor(.red)
-									} else {
-										Image(systemName: "lock.fill")
-											.foregroundColor(.green)
+						if let channels = myInfo.channels?.array as? [ChannelEntity],
+						    let sortedChannels = channels.sorted(by: {
+							    $0.index < $1.index
+						    }) {
+							ForEach(sortedChannels, id: \.self) { (channel: ChannelEntity) in
+								GridRow {
+									if channel.index == 0 || channel.role > 0 {
+										Spacer()
+										let includedChannel = IncludedChannels(rawValue: 1 << channel.index)
+										makeChannelRow(
+											channel: channel,
+											isOn: Binding<Bool>(
+												get: {
+													$includedChannels.contains(includedChannel)
+												},
+												set: {
+													$includedChannels = $includedChannels & includedChannel
+												}
+											)
+										)
+										Spacer()
 									}
 								}
-								Spacer()
 							}
 						}
 					}
 
 					let qrImage = qrCodeImage.generateQRCode(from: channelsUrl)
 					VStack {
-						if node != nil {
+						if let node {
 							Toggle(isOn: $replaceChannels) {
 								Label(replaceChannels ? "Replace Channels" : "Add Channels", systemImage: replaceChannels ? "arrow.triangle.2.circlepath.circle" : "plus.app")
 							}
@@ -205,9 +169,9 @@ struct ShareChannels: View {
 
 							ShareLink("Share QR Code & Link",
 										item: Image(uiImage: qrImage),
-										subject: Text("Meshtastic Node \(node?.user?.shortName ?? "????") has shared channels with you"),
+										subject: Text("Meshtastic Node \(node.user?.shortName ?? "????") has shared channels with you"),
 										message: Text(channelsUrl),
-										preview: SharePreview("Meshtastic Node \(node?.user?.shortName ?? "????") has shared channels with you",
+										preview: SharePreview("Meshtastic Node \(node.user?.shortName ?? "????") has shared channels with you",
 															image: Image(uiImage: qrImage))
 							)
 							.buttonStyle(.bordered)
@@ -231,23 +195,16 @@ struct ShareChannels: View {
 			}
 			.navigationTitle("generate.qr.code")
 			.navigationBarTitleDisplayMode(.inline)
-			.navigationBarItems(trailing:
-			ZStack {
-				ConnectedDevice(bluetoothOn: bleManager.isSwitchedOn, deviceConnected: bleManager.connectedPeripheral != nil, name: (bleManager.connectedPeripheral != nil) ? bleManager.connectedPeripheral.shortName : "?")
-			})
+			.navigationBarItems(
+				trailing: ZStack {
+					ConnectedDevice(bluetoothOn: bleManager.isSwitchedOn, deviceConnected: bleManager.connectedPeripheral != nil, name: (bleManager.connectedPeripheral != nil) ? bleManager.connectedPeripheral.shortName : "?")
+				}
+			)
 			.onAppear {
 				bleManager.context = context
 				generateChannelSet()
 			}
-			.onChange(of: includeChannel0) { _ in generateChannelSet()	}
-			.onChange(of: includeChannel1) { _ in generateChannelSet()	}
-			.onChange(of: includeChannel2) { _ in generateChannelSet()	}
-			.onChange(of: includeChannel3) { _ in generateChannelSet()	}
-			.onChange(of: includeChannel4) { _ in generateChannelSet()	}
-			.onChange(of: includeChannel5) { _ in generateChannelSet()	}
-			.onChange(of: includeChannel6) { _ in generateChannelSet() }
-			.onChange(of: includeChannel7) { _ in generateChannelSet() }
-			.onChange(of: replaceChannels) { _ in generateChannelSet() }
+			.onChange(of: includedChannels) { _ in generateChannelSet() }
 		}
 	}
 
@@ -268,7 +225,7 @@ struct ShareChannels: View {
 		loRaConfig.sx126XRxBoostedGain = node?.loRaConfig?.sx126xRxBoostedGain ?? false
 		loRaConfig.ignoreMqtt = node?.loRaConfig?.ignoreMqtt ?? false
 		channelSet.loraConfig = loRaConfig
-		
+
 		if let channels = node?.myInfo?.channels?.array as? [ChannelEntity], !channels.isEmpty {
 			for ch in channels where isValidChannel(ch) {
 				var channelSettings = ChannelSettings()
@@ -278,24 +235,16 @@ struct ShareChannels: View {
 				channelSet.settings.append(channelSettings)
 			}
 		}
-		
+
 		let settingsString = try! channelSet.serializedData().base64EncodedString()
 		channelsUrl = ("https://meshtastic.org/e/#" + settingsString.base64ToBase64url() + (replaceChannels ? "" : "?add=true"))
-	
 	}
-	
+
 	// Determines if the channel should be included
 	// in the generated channel set or not.
 	private func isValidChannel(_ ch: ChannelEntity) -> Bool {
-		ch.role > 0 && (
-			ch.index == 0 && includeChannel0 ||
-			ch.index == 1 && includeChannel1 ||
-			ch.index == 2 && includeChannel2 ||
-			ch.index == 3 && includeChannel3 ||
-			ch.index == 4 && includeChannel4 ||
-			ch.index == 5 && includeChannel5 ||
-			ch.index == 6 && includeChannel6 ||
-			ch.index == 7 && includeChannel7
+		ch.role > 0 && includedChannels.contains(
+			IncludedChannels(rawValue: 1 << ch.index)
 		)
 	}
 }
